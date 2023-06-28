@@ -12,12 +12,12 @@ app.use(express.urlencoded({ extended: true }))
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
-app.use('/places', require('./controllers/places'))
 
 // Controllers & Routes
 app.get('/', (req, res) => {
-  res.render('home')
+    res.render('home')
 })
+app.use('/places', require('./controllers/places'))
 
 // Error 404 page
 app.get('*', (req, res) => {
